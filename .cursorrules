@@ -1,0 +1,90 @@
+# Ứng dụng Tải Video YouTube - Quy trình xây dựng
+
+## Planning
+- [X] Xác định yêu cầu: Ứng dụng tải video từ YouTube với giao diện người dùng trực quan
+- [X] Xác định công nghệ sử dụng: Python, PyQt5/PySide6 cho giao diện, yt-dlp cho tải video
+- [X] Thiết kế cấu trúc thư mục và kiến trúc ứng dụng
+- [X] Lập kế hoạch triển khai từng phần
+
+## Structure
+Cấu trúc thư mục: 
+LappyTube/
+├── assets/ # Chứa icon, hình ảnh, tài nguyên
+│ └── icons/
+│ └── bin/ # Chứa ffmpeg.exe
+├── src/ # Mã nguồn chính
+│ ├── init.py
+│ ├── main.py # Điểm khởi chạy ứng dụng
+│ ├── ui/ # Các file liên quan đến giao diện
+│ │ ├── init.py
+│ │ ├── main_window.py
+│ │ └── resources.py
+│ ├── core/ # Logic xử lý chính
+│ │ ├── init.py
+│ │ ├── downloader.py
+│ │ └── config.py
+│ └── utils/ # Các công cụ hỗ trợ
+│ ├── init.py
+│ └── helpers.py
+├── requirements.txt # Danh sách thư viện cần thiết
+├── setup.py # Cấu hình cài đặt
+├── README.md # Hướng dẫn
+└── build_app.py # Script cho PyInstaller
+
+
+## Dependencies
+Các thư viện cần thiết:
+- yt-dlp: Thư viện tải video từ YouTube (thay thế pytube)
+- PyQt5: Thư viện xây dựng giao diện người dùng
+- pyinstaller: Đóng gói ứng dụng thành file .exe
+- pillow: Xử lý hình ảnh
+- requests: Gửi yêu cầu HTTP
+
+## Implementation
+Các bước triển khai:
+
+1. [X] Tạo cấu trúc thư mục và thiết lập project
+2. [X] Cài đặt các thư viện cần thiết
+3. [X] Xây dựng lớp core/downloader.py để xử lý tải video
+4. [X] Thiết kế giao diện người dùng trong ui/main_window.py
+5. [X] Kết nối giao diện với logic tải xuống
+6. [X] Thêm tính năng:
+   - [X] Tải video ở nhiều độ phân giải
+   - [X] Tải audio
+   - [X] Hiển thị tiến trình tải xuống
+   - [X] Lưu cấu hình người dùng
+7. [X] Kiểm thử ứng dụng
+
+## Packaging
+Quy trình đóng gói ứng dụng:
+1. [X] Cài đặt pyinstaller: `pip install pyinstaller`
+2. [X] Tạo file build_app.py với cấu hình PyInstaller
+3. [ ] Chạy PyInstaller để tạo file .exe
+4. [ ] Kiểm tra và tối ưu file .exe đã tạo
+5. [ ] Tạo installer (tùy chọn)
+
+## Lessons
+Ghi chú những bài học kinh nghiệm:
+- Sử dụng yt-dlp thay vì pytube để tránh lỗi với API YouTube và có nhiều tùy chọn hơn
+- PyQt5 hoạt động tốt cho giao diện người dùng
+- Đóng gói với PyInstaller cần chú ý đến hidden imports
+- Cần cài đặt ffmpeg để tải video chất lượng cao (bestvideo+bestaudio)
+- Đường dẫn ffmpeg cần được xác định chính xác trong ứng dụng
+- Nên đóng gói ffmpeg cùng với ứng dụng để người dùng không cần cài đặt riêng
+
+## Scratchpad
+Tiến độ hiện tại:
+- [X] Tạo file .cursorrules
+- [X] Bắt đầu triển khai dự án
+- [X] Tạo cấu trúc thư mục và thiết lập project
+- [X] Xây dựng core/downloader.py
+- [X] Thiết kế giao diện người dùng
+- [X] Cài đặt các thư viện cần thiết
+- [X] Chạy và kiểm thử ứng dụng
+- [X] Sửa lỗi ffmpeg để tải video chất lượng cao
+- [ ] Đóng gói ứng dụng thành file .exe
+
+Công việc tiếp theo:
+- [ ] Chạy build_app.py để tạo file .exe
+- [ ] Kiểm tra file .exe trên máy tính khác
+- [ ] Tạo trang Releases trên GitHub
